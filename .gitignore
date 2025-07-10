@@ -8,8 +8,9 @@ __pycache__/
 .vscode/
 .vscode
 
-ai_coscientist_states
-agent_workspace
+logs/
+ai_coscientist_states/
+agent_workspace/
 
 # Distribution / packaging
 .Python

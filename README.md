@@ -17,18 +17,69 @@ A multi-agent AI framework for collaborative scientific research, implementing t
 💾 **State Persistence**: Save and resume research workflows with agent state management  
 🛡️ **Robust Error Handling**: Graceful fallbacks and recovery mechanisms for production reliability
 
+## Architecture
+
+The AI-CoScientist framework consists of the following components:
+
+```
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Generation      │    │ Reflection      │    │ Ranking         │
+│ Agent           │───▶│ Agent           │───▶│ Agent           │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Evolution       │    │ Meta-Review     │    │ Tournament      │
+│ Agent           │◀───│ Agent           │    │ Agent           │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+         │                       │                       │
+         ▼                       ▼                       ▼
+┌─────────────────┐    ┌─────────────────┐    ┌─────────────────┐
+│ Proximity       │    │ Supervisor      │    │ Conversation    │
+│ Agent           │    │ Agent           │    │ Manager         │
+└─────────────────┘    └─────────────────┘    └─────────────────┘
+```
+
+### Workflow Process
+
+1. **Generation Phase**: Create initial hypotheses based on research goal
+2. **Reflection Phase**: Peer review each hypothesis for scientific merit
+3. **Ranking Phase**: Order hypotheses by review scores
+4. **Tournament Phase**: Pairwise comparisons with Elo rating updates
+5. **Meta-Review Phase**: Synthesize insights across all reviews
+6. **Evolution Phase**: Refine top hypotheses based on feedback
+7. **Proximity Analysis**: Cluster similar hypotheses for diversity control
+8. **Iteration**: Repeat refinement cycles for continuous improvement
+
 ## Installation
 
-You can install the package using pip:
+### Prerequisites
+
+- Python 3.10 or higher
+- API access to LLM providers (OpenAI, Anthropic, Google, etc.)
+
+### Install from PyPI
 
 ```bash
+pip install ai-coscientist
+```
+
+### Install from Source
+
+```bash
+git clone https://github.com/The-Swarm-Corporation/AI-CoScientist.git
+cd AI-CoScientist
 pip install -e .
 ```
 
-Or install dependencies directly:
+### Environment Setup
+
+Create a `.env` file with your API keys:
 
 ```bash
-pip install swarms loguru python-dotenv
+OPENAI_API_KEY=your_openai_key_here
+ANTHROPIC_API_KEY=your_anthropic_key_here
+GOOGLE_API_KEY=your_google_key_here
 ```
 
 ## Quick Start
@@ -45,6 +96,7 @@ ai_coscientist = AIScientistFramework(
     evolution_top_k=3,
     verbose=True
 )
+```
 
 # Define your research goal
 research_goal = "Develop novel approaches for improving reasoning capabilities in large language models"
@@ -167,6 +219,18 @@ If you use this work in your research, please cite both the original paper and t
 - **Discussions**: [GitHub Discussions](https://github.com/The-Swarm-Corporation/AI-CoScientist/discussions)
 - **Email**: kye@swarms.world
 - **Discord**: [Join our community](https://discord.gg/swarms-999382051935506503)
+
+## 📝 TODO
+
+- [ ] **Fix state saving**: Improve agent state persistence and resume functionality
+- [ ] **Export hypothesis**: Add JSON/CSV export capabilities for generated hypotheses
+- [ ] **Improve Elo rating**: Enhance tournament selection algorithm and rating calculations
+- [ ] **Implement hypothesis validation**: Add automated testing framework for hypothesis quality
+- [ ] **Enhance agent prompts**: Optimize system prompts for better scientific reasoning
+- [ ] **Add literature integration**: Connect with arXiv/PubMed APIs for knowledge grounding
+- [ ] **Performance optimization**: Implement parallel agent execution and caching
+- [ ] **Add visualization**: Create hypothesis evolution and tournament bracket visualizations
+- [ ] **Extend model support**: Add support for more LLM providers and local models
 
 ---
 

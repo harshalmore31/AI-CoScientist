@@ -21,9 +21,14 @@ A multi-agent AI framework for collaborative scientific research, implementing t
 
 You can install the package using pip:
 
+
 ```bash
 pip3 install -U ai-coscientist
-``` 
+```
+
+
+---
+
 
 ## Quick Start
 

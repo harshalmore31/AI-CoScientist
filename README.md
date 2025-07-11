@@ -22,14 +22,8 @@ A multi-agent AI framework for collaborative scientific research, implementing t
 You can install the package using pip:
 
 ```bash
-pip install -e .
-```
-
-Or install dependencies directly:
-
-```bash
-pip install swarms loguru python-dotenv
-```
+pip3 install -U ai-coscientist
+``` 
 
 ## Quick Start
 

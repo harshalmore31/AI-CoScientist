@@ -1,7 +1,5 @@
 import json
 from ai_coscientist import AIScientistFramework
-import json
-from loguru import logger
 
 ai_coscientist = AIScientistFramework(
     model_name="gemini/gemini-2.0-flash",  # Or "gemini/gemini-2.0-flash" if you have access

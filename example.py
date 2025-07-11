@@ -1,3 +1,4 @@
+import json
 from ai_coscientist import AIScientistFramework
 
 ai_coscientist = AIScientistFramework(
@@ -46,4 +47,4 @@ else:
 try:
     ai_coscientist.save_state()
 except Exception as e:
-    logger.error(f"Exception during main execution: {e}")
+    print(f"Error saving state: {e}")

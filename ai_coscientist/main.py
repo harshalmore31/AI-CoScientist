@@ -235,7 +235,7 @@ class AIScientistFramework:
 
     def __init__(
         self,
-        model_name: str = "gemini/gemini-2.5-flash",
+        model_name: str = "gpt-4.1",
         max_iterations: int = 3,
         base_path: Optional[str] = None,
         verbose: bool = False,
@@ -1550,7 +1550,7 @@ def main() -> None:
         
         # Initialize the AI Co-scientist Framework
         ai_coscientist: AIScientistFramework = AIScientistFramework(
-            model_name="gemini/gemini-2.5-flash",  # Or other models as needed
+            model_name="gpt-4.1",  # Or other models as needed
             max_iterations=2, # Reduced iterations for example run
             verbose=False, # Set to True for detailed logs
             hypotheses_per_generation=10,

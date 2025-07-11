@@ -1543,8 +1543,9 @@ Example JSON Output:
         logger.success(f"Successfully loaded state for {loaded_count}/{len(agents)} agents")
 
 
+"""
 def main() -> None:
-    """Main execution function with proper error handling and type safety."""
+    \"\"\"Main execution function with proper error handling and type safety.\"\"\"
     try:
         logger.info("Initializing AI Co-scientist Framework")
         
@@ -1650,7 +1651,10 @@ def main() -> None:
         logger.exception("Full traceback:")
         print(f"\n❌ Fatal error: {e}")
         raise
+"""
 
 
+"""
 if __name__ == "__main__":
     main()
+"""

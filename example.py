@@ -1,3 +1,4 @@
+import json
 from ai_coscientist import AIScientistFramework
 
 ai_coscientist = AIScientistFramework(

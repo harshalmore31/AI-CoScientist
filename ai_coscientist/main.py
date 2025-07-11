@@ -1543,114 +1543,114 @@ Example JSON Output:
         logger.success(f"Successfully loaded state for {loaded_count}/{len(agents)} agents")
 
 
-def main() -> None:
-    """Main execution function with proper error handling and type safety."""
-    try:
-        logger.info("Initializing AI Co-scientist Framework")
-        
-        # Initialize the AI Co-scientist Framework
-        ai_coscientist: AIScientistFramework = AIScientistFramework(
-            model_name="gpt-4.1",  # Or other models as needed
-            max_iterations=2, # Reduced iterations for example run
-            verbose=False, # Set to True for detailed logs
-            hypotheses_per_generation=10,
-            tournament_size=8,
-            evolution_top_k=3,
-        )
+# def main() -> None:
+#     """Main execution function with proper error handling and type safety."""
+#     try:
+#         logger.info("Initializing AI Co-scientist Framework")
+#         
+#         # Initialize the AI Co-scientist Framework
+#         ai_coscientist: AIScientistFramework = AIScientistFramework(
+#             model_name="gpt-4.1",  # Or other models as needed
+#             max_iterations=2, # Reduced iterations for example run
+#             verbose=False, # Set to True for detailed logs
+#             hypotheses_per_generation=10,
+#             tournament_size=8,
+#             evolution_top_k=3,
+#         )
 
-        # Define a research goal
-        research_goal: str = "Develop novel hypotheses for Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
-        logger.info(f"Research goal: {research_goal}")
+#         # Define a research goal
+#         research_goal: str = "Develop novel hypotheses for Incentivizing Reasoning Capability in LLMs via Reinforcement Learning"
+#         logger.info(f"Research goal: {research_goal}")
 
-        # Run the research workflow
-        logger.info("Starting research workflow execution")
-        results: WorkflowResult = ai_coscientist.run_research_workflow(research_goal)
+#         # Run the research workflow
+#         logger.info("Starting research workflow execution")
+#         results: WorkflowResult = ai_coscientist.run_research_workflow(research_goal)
 
-        # Output the results
-        logger.info("Displaying research workflow results")
-        print("\n" + "="*60)
-        print("         RESEARCH WORKFLOW RESULTS")
-        print("="*60)
-        
-        if "error" in results:
-            logger.error(f"Workflow failed with error: {results.get('error')}")
-            print(f"❌ Error during workflow: {results.get('error')}")
-        else:
-            print(f"\n📊 TOP RANKED HYPOTHESES ({len(results['top_ranked_hypotheses'])} found)")
-            print("-" * 50)
-            
-            for i, hy in enumerate(results["top_ranked_hypotheses"], 1):
-                print(f"\n{i}. HYPOTHESIS:")
-                print(f"   Text: {hy['text']}")
-                print(f"   🏆 Elo Rating: {hy['elo_rating']}")
-                print(f"   📈 Score: {hy['score']:.2f}")
-                
-                # Safely get review summary
-                reviews = hy.get('reviews', [])
-                if reviews and isinstance(reviews[-1], dict):
-                    review_summary = reviews[-1].get('review_summary', 'No review summary')
-                else:
-                    review_summary = 'No reviews'
-                print(f"   📝 Latest Review: {review_summary}")
-                
-                print(f"   🔗 Cluster ID: {hy.get('similarity_cluster_id', 'None')}")
-                print(f"   🎯 Win Rate: {hy['win_rate']}% ({hy['total_matches']} matches)")
-                print("-" * 30)
+#         # Output the results
+#         logger.info("Displaying research workflow results")
+#         print("\n" + "="*60)
+#         print("         RESEARCH WORKFLOW RESULTS")
+#         print("="*60)
+#         
+#         if "error" in results:
+#             logger.error(f"Workflow failed with error: {results.get('error')}")
+#             print(f"❌ Error during workflow: {results.get('error')}")
+#         else:
+#             print(f"\n📊 TOP RANKED HYPOTHESES ({len(results['top_ranked_hypotheses'])} found)")
+#             print("-" * 50)
+#             
+#             for i, hy in enumerate(results["top_ranked_hypotheses"], 1):
+#                 print(f"\n{i}. HYPOTHESIS:")
+#                 print(f"   Text: {hy['text']}")
+#                 print(f"   🏆 Elo Rating: {hy['elo_rating']}")
+#                 print(f"   📈 Score: {hy['score']:.2f}")
+#                 
+#                 # Safely get review summary
+#                 reviews = hy.get('reviews', [])
+#                 if reviews and isinstance(reviews[-1], dict):
+#                     review_summary = reviews[-1].get('review_summary', 'No review summary')
+#                 else:
+#                     review_summary = 'No reviews'
+#                 print(f"   📝 Latest Review: {review_summary}")
+#                 
+#                 print(f"   🔗 Cluster ID: {hy.get('similarity_cluster_id', 'None')}")
+#                 print(f"   🎯 Win Rate: {hy['win_rate']}% ({hy['total_matches']} matches)")
+#                 print("-" * 30)
 
-            print(f"\n🔍 META-REVIEW INSIGHTS")
-            print("-" * 30)
-            meta_insights = results["meta_review_insights"]
-            if isinstance(meta_insights, dict):
-                meta_summary = meta_insights.get("meta_review_summary", "No meta-review summary available.")
-                # Truncate long summaries
-                if len(meta_summary) > 500:
-                    meta_summary = meta_summary[:500] + "..."
-                print(meta_summary)
-            else:
-                print("Meta-review insights not available")
+#             print(f"\n🔍 META-REVIEW INSIGHTS")
+#             print("-" * 30)
+#             meta_insights = results["meta_review_insights"]
+#             if isinstance(meta_insights, dict):
+#                 meta_summary = meta_insights.get("meta_review_summary", "No meta-review summary available.")
+#                 # Truncate long summaries
+#                 if len(meta_summary) > 500:
+#                     meta_summary = meta_summary[:500] + "..."
+#                 print(meta_summary)
+#             else:
+#                 print("Meta-review insights not available")
 
-            print(f"\n⚡ EXECUTION METRICS")
-            print("-" * 30)
-            metrics = results["execution_metrics"]
-            if isinstance(metrics, dict):
-                print(f"Total Time: {results['total_workflow_time']:.2f} seconds")
-                print(f"Hypotheses Generated: {metrics.get('hypothesis_count', 0)}")
-                print(f"Reviews Completed: {metrics.get('reviews_count', 0)}")
-                print(f"Tournament Rounds: {metrics.get('tournaments_count', 0)}")
-                print(f"Evolution Cycles: {metrics.get('evolutions_count', 0)}")
-                
-                # Show agent timing if available
-                agent_times = metrics.get('agent_execution_times', {})
-                if agent_times:
-                    print("\nAgent Performance:")
-                    for agent_name, timing in agent_times.items():
-                        if isinstance(timing, dict):
-                            avg_time = timing.get('avg_time', 0)
-                            calls = timing.get('calls', 0)
-                            print(f"  {agent_name}: {avg_time:.2f}s avg ({calls} calls)")
+#             print(f"\n⚡ EXECUTION METRICS")
+#             print("-" * 30)
+#             metrics = results["execution_metrics"]
+#             if isinstance(metrics, dict):
+#                 print(f"Total Time: {results['total_workflow_time']:.2f} seconds")
+#                 print(f"Hypotheses Generated: {metrics.get('hypothesis_count', 0)}")
+#                 print(f"Reviews Completed: {metrics.get('reviews_count', 0)}")
+#                 print(f"Tournament Rounds: {metrics.get('tournaments_count', 0)}")
+#                 print(f"Evolution Cycles: {metrics.get('evolutions_count', 0)}")
+#                 
+#                 # Show agent timing if available
+#                 agent_times = metrics.get('agent_execution_times', {})
+#                 if agent_times:
+#                     print("\nAgent Performance:")
+#                     for agent_name, timing in agent_times.items():
+#                         if isinstance(timing, dict):
+#                             avg_time = timing.get('avg_time', 0)
+#                             calls = timing.get('calls', 0)
+#                             print(f"  {agent_name}: {avg_time:.2f}s avg ({calls} calls)")
 
-            if ai_coscientist.verbose: # Only print full history if verbose is on
-                logger.debug("Printing conversation history (verbose mode)")
-                print(f"\n💬 CONVERSATION HISTORY (First 1000 chars)")
-                print("-" * 30)
-                history = results.get("conversation_history", "")
-                print(history[:1000] + ("..." if len(history) > 1000 else ""))
+#             if ai_coscientist.verbose: # Only print full history if verbose is on
+#                 logger.debug("Printing conversation history (verbose mode)")
+#                 print(f"\n💬 CONVERSATION HISTORY (First 1000 chars)")
+#                 print("-" * 30)
+#                 history = results.get("conversation_history", "")
+#                 print(history[:1000] + ("..." if len(history) > 1000 else ""))
 
-        # Save agent states (optional)
-        logger.info("Saving agent states")
-        ai_coscientist.save_state()
-        
-        logger.success("Main execution completed successfully")
+#         # Save agent states (optional)
+#         logger.info("Saving agent states")
+#         ai_coscientist.save_state()
+#         
+#         logger.success("Main execution completed successfully")
 
-    except KeyboardInterrupt:
-        logger.warning("Execution interrupted by user")
-        print("\n⚠️  Execution interrupted by user")
-    except Exception as e:
-        logger.error(f"Exception during main execution: {e}")
-        logger.exception("Full traceback:")
-        print(f"\n❌ Fatal error: {e}")
-        raise
+#     except KeyboardInterrupt:
+#         logger.warning("Execution interrupted by user")
+#         print("\n⚠️  Execution interrupted by user")
+#     except Exception as e:
+#         logger.error(f"Exception during main execution: {e}")
+#         logger.exception("Full traceback:")
+#         print(f"\n❌ Fatal error: {e}")
+#         raise
 
 
-if __name__ == "__main__":
-    main()
+# if __name__ == "__main__":
+#     main()

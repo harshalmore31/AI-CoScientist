@@ -1,8 +1,8 @@
-[![Multi-Modality](agorabanner.png)](https://discord.com/servers/agora-999382051935506503)
+![AI-CoScientist](https://storage.googleapis.com/gweb-research2023-media/images/AICoScientist-1-Components.width-1250.png)
 
 # AI-CoScientist
 
-[![Join our Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/agora-999382051935506503) [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@kyegomez3242) [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kye-g-38759a207/) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/kyegomezb)
+[![Join our Discord](https://img.shields.io/badge/Discord-Join%20our%20server-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/swarms-999382051935506503) [![Subscribe on YouTube](https://img.shields.io/badge/YouTube-Subscribe-red?style=for-the-badge&logo=youtube&logoColor=white)](https://www.youtube.com/@kyegomez3242) [![Connect on LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kye-g-38759a207/) [![Follow on X.com](https://img.shields.io/badge/X.com-Follow-1DA1F2?style=for-the-badge&logo=x&logoColor=white)](https://x.com/kyegomezb)
 
 A multi-agent AI framework for collaborative scientific research, implementing the "Towards an AI Co-Scientist" methodology with tournament-based hypothesis evolution, peer review systems, and intelligent agent orchestration.
 
@@ -123,13 +123,6 @@ print("Strategic recommendations:", insights.get('strategic_recommendations'))
 - `black .`
 - `ruff . --fix`
 
-## Tests 🧪
-
-[`pytests`](https://docs.pytest.org/en/7.1.x/) is used to run our tests.
-
-```bash
-pytest tests/
-```
 
 ## Contributing
 
@@ -163,5 +156,5 @@ MIT License - see [LICENSE](LICENSE) file for details.
 ## Support
 
 - 📧 Email: kye@swarms.world
-- 💬 Discord: [Join our community](https://discord.gg/agora-999382051935506503)
+- 💬 Discord: [Join our community](https://discord.gg/swarms-999382051935506503)
 - 🐦 Twitter: [@kyegomezb](https://x.com/kyegomezb)

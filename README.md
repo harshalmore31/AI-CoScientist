@@ -32,7 +32,7 @@ from ai_coscientist import AIScientistFramework
 
 # Initialize the AI Co-scientist Framework
 ai_coscientist = AIScientistFramework(
-    model_name="gpt-4",
+    model_name="gpt-4o-mini",
     max_iterations=3,
     hypotheses_per_generation=10,
     tournament_size=8,

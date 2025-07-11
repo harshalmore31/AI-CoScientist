@@ -27,7 +27,7 @@ from .main import (
 
 __all__ = [
     "AIScientistFramework",
-    "Hypothesis", 
+    "Hypothesis",
     "AgentRole",
     "ReviewScores",
     "DetailedFeedback",

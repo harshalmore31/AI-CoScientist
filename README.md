@@ -61,12 +61,14 @@ The AI-CoScientist framework consists of the following components:
 ### Install from PyPI
 
 ```bash
-pip install ai-coscientist
+pip3 install -U ai-coscientist
 ```
 
 ### Install from Source
 
+
 ```bash
+
 git clone https://github.com/The-Swarm-Corporation/AI-CoScientist.git
 cd AI-CoScientist
 pip install -e .
@@ -82,6 +84,7 @@ ANTHROPIC_API_KEY=your_anthropic_key_here
 GOOGLE_API_KEY=your_google_key_here
 ```
 
+
 ## Quick Start
 
 ```python
@@ -89,7 +92,7 @@ from ai_coscientist import AIScientistFramework
 
 # Initialize the AI Co-scientist Framework
 ai_coscientist = AIScientistFramework(
-    model_name="gpt-4",
+    model_name="gpt-4o-mini",
     max_iterations=3,
     hypotheses_per_generation=10,
     tournament_size=8,
